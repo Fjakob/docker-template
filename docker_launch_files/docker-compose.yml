@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  example_image:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      
+    image: example:tag
+    
+    container_name: container_name 
+    
+    network_mode: host
+    
+    privileged: true #optional
+    
+    environment:
+      - DISPLAY=$DISPLAY
+      - TZ=Europe/London
+      
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix    # for Display (or $HOME/.Xauthority:/root/.Xauthority:rw)
+      - /dev:/dev                        # for devices (GPU etc)
+      - ../docker_volume:/docker_volume  # Workspace
+
