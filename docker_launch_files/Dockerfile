@@ -8,7 +8,8 @@ RUN apt-get update -y &&\
     apt-get install -y --no-install-recommends &&\
     apt-get install python3.10 -y &&\
     apt install python3-pip -y &&\
-    apt install -y python3-tk
+    apt install -y python3-tk &&\
+    apt install build-essential  
 
 ### Install basic python packages
 RUN pip install --upgrade pip &&\
